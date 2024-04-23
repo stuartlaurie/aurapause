@@ -1,9 +1,11 @@
 # aurapause
 Script using Neo4j Aura API to list instances and pause them
 
-## Usage
+## Pre-requisite
 
 Generate Neo4j Aura credentials following these [instructions in Neo4j documentation](https://neo4j.com/docs/aura/platform/api/authentication/#_creating_credentials)
+
+## Usage
 
 ```
 usage: aurapause.py [-h] [-c CREDFILE] [-p PAUSE] [-e EXCLUDE] [-t TENANT]
