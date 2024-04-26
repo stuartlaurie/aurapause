@@ -3,6 +3,7 @@ from requests.auth import HTTPBasicAuth
 import pandas as pd
 from argparse import ArgumentParser
 from tqdm import tqdm
+import sys
 
 auraendpoint = "https://api.neo4j.io/v1/instances"
 
@@ -20,6 +21,9 @@ parser.add_argument("-e", "--exclude", dest="exclude", default="",
                     help="instances to exclude from pause, comma separated list of ids")
 parser.add_argument("-t", "--tenant", dest="tenant", default="", 
                     help="tenant id, filter only to dbs in specified tenant")
+if len(sys.argv)==1:
+    parser.print_help(sys.stderr)
+    sys.exit(1)
 
 args = parser.parse_args()
 
@@ -127,6 +131,6 @@ if args.pause != "":
     else:
         print ("Pausing: "+args.pause)
         pause_list = args.pause.split(",")
-    print(pause_list)
+    #print(pause_list)
     pause_db(pause_list)
 
